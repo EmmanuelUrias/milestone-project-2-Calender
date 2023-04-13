@@ -3,7 +3,7 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('events', {
-        event_ID: {
+      event_ID: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -20,6 +20,10 @@ module.exports = {
       event_date: {
         type: Sequelize.DATEONLY,
         allowNull: false
+      },
+      description: {
+        type: Sequelize.TEXT,
+        allowNull: true
       },
       user_ID: {
         type: Sequelize.SMALLINT,
