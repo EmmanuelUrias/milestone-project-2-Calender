@@ -2,16 +2,17 @@ import { Link } from 'react-router-dom'
 import { Login } from './Page Components/Login'
 import { Register } from './Page Components/Register'
 import { useState } from 'react';
+import React from 'react';
 
 function LandingPage() {
-  const [currentForm, setCurrentForm] = useState('login');
-  const [showForm, setShowForm] = useState(false);
+  // const [currentForm, setCurrentForm] = useState('login');
+  // const [showForm, setShowForm] = useState(false);
 
 
-  const toggleForm = (formName) => {
-    setCurrentForm(formName)
-    setShowForm(true)
-  }
+  // const toggleForm = (formName: string) => {
+  //   setCurrentForm(formName)
+  //   setShowForm(true)
+  // }
 
   return (
 

@@ -7,6 +7,7 @@ import EventPage from './Components/Pages/EventPage';
 import UpdateEvent from './Components/Pages/Page Components/UpdateEvent'
 import { useState } from 'react';
 import UpdatePage from './Components/Pages/Page Components/UpdatePage';
+import React from 'react';
 
 
 

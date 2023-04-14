@@ -1,14 +1,16 @@
 import { useState } from "react";
 import { Button } from "@material-tailwind/react";
 import { useNavigate } from 'react-router-dom'
+import React from "react";
+import DeleteButtonProps from "./models/DeleteButtonProps";
 
-function DeleteButton({ eventId }) {
+function DeleteButton(props: DeleteButtonProps) {
   const [message, setMessage] = useState("");
   const navigate = useNavigate()
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`https://milestone-project-2-calender-backend-test-hd9u50k1b.vercel.app/api/events/${eventId}`, {
+      const response = await fetch(`https://milestone-project-2-calender-backend-test-hd9u50k1b.vercel.app/api/events/${props.eventId}`, {
         method: "DELETE",
       });
       const data = await response.json();
@@ -16,7 +18,7 @@ function DeleteButton({ eventId }) {
 
       // REDIRECTS TO THE CALENDAR PAGE
       navigate('/calender')
-    } catch (err) {
+    } catch (err: any) {
       console.error(err.message);
     }
   };

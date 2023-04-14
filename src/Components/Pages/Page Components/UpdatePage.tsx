@@ -2,9 +2,17 @@ import { useState, useEffect } from 'react'
 import UpdateEvent from './UpdateEvent'
 import { useParams } from 'react-router-dom'
 import GoBackBtn from '../../GoBackBtn';
+import UpdatePageFetchObject from '../../models/UpdatePageFetchObject';
 
 function UpdatePage() {
-  const [eventInfo, setEventInfo] = useState({})
+  const [eventInfo, setEventInfo] = useState<UpdatePageFetchObject>({
+    event_ID: 0,
+    event_date: '',
+    event_title: '',
+    event_location: '',
+    event_description: '',
+    user_ID: 0
+  })
 
   const { id } = useParams(); // grabs id from the url 
 
@@ -27,6 +35,7 @@ function UpdatePage() {
         date={eventInfo.event_date}
         title={eventInfo.event_title}
         location={eventInfo.event_location}
+        description={eventInfo.event_description}
         user_id={eventInfo.user_ID}
       />
     </div>

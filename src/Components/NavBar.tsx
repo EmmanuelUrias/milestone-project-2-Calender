@@ -4,14 +4,14 @@ import { Register } from './Pages/Page Components/Register';
 import { Button } from "@material-tailwind/react";
 import { Link } from 'react-router-dom';
 
-function NavBar(props) {
+function NavBar() {
   const [showModal, setShowModal] = useState(false);
   const [currentForm, setCurrentForm] = useState('login');
   const [showForm, setShowForm] = useState(true);
   const [modalText, setModalText] = useState(true);
 
 
-  const toggleForm = (formName) => {
+  const toggleForm = (formName: string) => {
     setCurrentForm(formName)
     setShowForm(true)
     setModalText(formName === 'login' ? true : false);
@@ -20,7 +20,7 @@ function NavBar(props) {
   const modalTitle = modalText ? 'Login' : 'Sign Up';
 
   useEffect(() => {
-    function handleKeyDown(event) {
+    function handleKeyDown(event: { key: string; }) {
       if (event.key === "Escape") {
         setShowModal(false)
       }
@@ -43,12 +43,12 @@ function NavBar(props) {
           <div className="lg:flex flex-grow items-center" id="example-navbar-warning">
             <ul className="flex flex-col lg:flex-row list-none ml-auto space-x-2" >
               <li className="nav-item my-2">
-                <Button onClick={() => { toggleForm('login', 'Login'); setShowModal(true); }} className="px-5 py-3 flex items-center text-s uppercase font-bold leading-snug bg-red-600 text-white hover:opacity-75">
+                <Button onClick={() => { toggleForm('login'); setShowModal(true); }} className="px-5 py-3 flex items-center text-s uppercase font-bold leading-snug bg-red-600 text-white hover:opacity-75">
                   Login
                 </Button>
               </li>
               <li className="nav-item my-2">
-                <Button onClick={() => { toggleForm('register', 'Sign Up'); setShowModal(true) }} className="px-4 py-3 flex items-center text-s uppercase font-bold leading-snug bg-red-600 text-white hover:opacity-75">
+                <Button onClick={() => { toggleForm('register'); setShowModal(true) }} className="px-4 py-3 flex items-center text-s uppercase font-bold leading-snug bg-red-600 text-white hover:opacity-75">
                   Sign Up
                 </Button>
               </li>

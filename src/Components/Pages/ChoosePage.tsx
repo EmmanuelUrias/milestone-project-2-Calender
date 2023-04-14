@@ -1,3 +1,4 @@
+import React from 'react'
 import ChooseCards from '../ChooseCards'
 import NavBar from '../NavBar'
 

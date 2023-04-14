@@ -7,9 +7,10 @@ import {
   Typography,
   Navbar,
 } from "@material-tailwind/react";
+import React from 'react';
+import ChooseCardsProps from './models/ChooseCardsProps';
 
-
-function ChooseCards(props) {
+function ChooseCards(props: ChooseCardsProps) {
 
   return (
     <div>

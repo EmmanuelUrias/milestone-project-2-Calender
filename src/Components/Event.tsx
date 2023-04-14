@@ -1,8 +1,10 @@
+import React from 'react';
 import { useState, useEffect } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
+import EventPropsItem from './models/EventPropsItem';
 
 
-function Event(props) { // we're going to pass some sort of props in the future
+function Event(props: EventPropsItem) { // we're going to pass some sort of props in the future
 
   const [showButton, setShowButton] = useState(true)
 
