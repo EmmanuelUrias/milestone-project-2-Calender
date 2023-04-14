@@ -2,19 +2,12 @@ import { createClient } from '@supabase/supabase-js'
 import { useNavigate } from 'react-router-dom'
 import GoBackBtn from '../GoBackBtn';
 import React, { useState } from 'react';
+import CreateEventPageFormData from '../models/CreateEventPageFormData';
 
 const supabaseUrl = "https://keztfhsconadyzpjouyc.supabase.co"
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlenRmaHNjb25hZHl6cGpvdXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzYzNTE5NDUsImV4cCI6MTk5MTkyNzk0NX0.Klp0MeA68AP0nNonvKmn1wDh_RZL-HoMtexKYUSaEB8"
 
 const supabase = createClient(supabaseUrl, supabaseKey)
-
-interface CreateEventPageFormData {
-  user_ID: number,
-  event_title: string,
-  description: string,
-  event_date: string,
-  event_location: string
-}
 
 function CreateEventPage() {
   const navigate = useNavigate()

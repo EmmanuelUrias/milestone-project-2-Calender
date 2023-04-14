@@ -2,20 +2,12 @@ import { useNavigate, useParams } from 'react-router';
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import React from 'react';
+import UpdateEventPropsItem from '../../models/UpdateEventPropsItem';
 
 const supabaseUrl = "https://keztfhsconadyzpjouyc.supabase.co"
 const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlenRmaHNjb25hZHl6cGpvdXljIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzYzNTE5NDUsImV4cCI6MTk5MTkyNzk0NX0.Klp0MeA68AP0nNonvKmn1wDh_RZL-HoMtexKYUSaEB8"
 
 const supabase = createClient(supabaseUrl, supabaseKey)
-
-interface UpdateEventPropsItem {
-  id: number,
-  date: string,
-  title: string,
-  location: string,
-  description: string,
-  user_id: number
-}
 
 
 function UpdateEvent(props: UpdateEventPropsItem) {
