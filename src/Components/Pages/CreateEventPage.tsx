@@ -20,10 +20,10 @@ function CreateEventPage() {
     //EXTRACTS THE FORM DATA
     const formData: CreateEventPageFormData = {
       user_ID: loginInfo ? loginInfo.user_ID : 1,
-      event_title: document.getElementById('event-title')?.value,
-      description: document.getElementById('description')?.value,
-      event_date: document.getElementById('choose-date')?.value,
-      event_location: document.getElementById('location')?.value,
+      event_title: (document.getElementById('event-title') as HTMLInputElement)?.value,
+      description: (document.getElementById('description') as HTMLInputElement)?.value,
+      event_date: (document.getElementById('choose-date') as HTMLInputElement)?.value,
+      event_location: (document.getElementById('location') as HTMLInputElement)?.value
     }
 
     //MAKES THE API CALL
