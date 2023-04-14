@@ -1,10 +1,11 @@
 //DEPENDENCIES
-const reports = require('express').Router()
+import express, { Request, Response } from 'express'
+const reports = express.Router()
 const db = require('../models')
 const { Report } = db
 
 //FIND ALL REPORTS
-reports.get('/', async (req, res) => {
+reports.get('/', async (req: Request, res: Response) => {
     try {
         const foundReports = await Report.findAll()
         res.status(200).json(foundReports)
@@ -15,7 +16,7 @@ reports.get('/', async (req, res) => {
 })
 
 //FIND A SPECIFIC REPORT
-reports.get('/:id', async (req, res) => {
+reports.get('/:id', async (req: Request, res: Response) => {
     try {
         const foundReport = await Report.findOne({
             where: { reported_user_ID: req.params.id }
@@ -28,7 +29,7 @@ reports.get('/:id', async (req, res) => {
 })
 
 //CREATE A REPORT
-reports.post('/', async (req, res) => {
+reports.post('/', async (req: Request, res: Response) => {
     try {
         const newReport = await Report.create(req.body)
         res.status(200).json({
@@ -43,4 +44,4 @@ reports.post('/', async (req, res) => {
 
 
 //EXPORT
-module.exports = reports
+export default reports

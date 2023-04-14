@@ -1,10 +1,11 @@
 //DEPENDENCIES
-const events = require('express').Router()
+import express, { Request, Response } from 'express'
+const events = express.Router()
 const db = require('../models')
 const { Event } = db
 
 //FIND ALL EVENTS
-events.get('/', async (req, res) => {
+events.get('/', async (req: Request, res: Response) => {
     try {
         const foundEvents = await Event.findAll()
         res.status(200).json(foundEvents)
@@ -16,7 +17,7 @@ events.get('/', async (req, res) => {
 })
 
 //FIND A SPECIFIC EVENT
-events.get('/:id', async (req, res) => {
+events.get('/:id', async (req: Request, res: Response) => {
     try {
         const foundEvent = await Event.findOne({
             where: { event_ID: req.params.id }
@@ -29,7 +30,7 @@ events.get('/:id', async (req, res) => {
 })
 
 //CREATE AN EVENT
-events.post('/', async (req, res) => {
+events.post('/', async (req: Request, res: Response) => {
     try {
         const newEvent = await Event.create(req.body)
         res.status(200).json({
@@ -43,7 +44,7 @@ events.post('/', async (req, res) => {
 })
 
 //UPDATE AN EVENT
-events.put('/:id', async (req, res) => {
+events.put('/:id', async (req: Request, res: Response) => {
     try {
         const updateEvent = await Event.update(req.body, {
             where: {
@@ -59,7 +60,7 @@ events.put('/:id', async (req, res) => {
 })
 
 //DELETE AN EVENT
-events.delete('/:id', async (req, res) => {
+events.delete('/:id', async (req: Request, res: Response) => {
     try {
         const deletedEvents = await Event.destroy({
             where: {
@@ -76,4 +77,4 @@ events.delete('/:id', async (req, res) => {
 
 
 //EXPORT
-module.exports = events
+export default events

@@ -1,10 +1,11 @@
 //DEPENDENCIES
-const users = require('express').Router()
+import express, { Request, Response } from 'express'
+const users = express.Router()
 const db = require('../models')
 const { User } = db
 
 //CREATE AN ACCOUNT
-users.post('/', async (req, res) => {
+users.post('/', async (req: Request, res: Response) => {
     try {
         const newAccount = await User.create(req.body)
         res.status(200).json({
@@ -18,7 +19,7 @@ users.post('/', async (req, res) => {
 })
 
 //UPDATE ACCOUNT
-users.put('/:id', async (req, res) => {
+users.put('/:id', async (req: Request, res: Response) => {
     try {
         const updatedAccount = await User.update(req.body, {
             where: {
@@ -34,7 +35,7 @@ users.put('/:id', async (req, res) => {
 })
 
 //DELETE ACCOUNT
-users.delete('/:id', async (req, res) => {
+users.delete('/:id', async (req: Request, res: Response) => {
     try {
         const deletedAccount = await User.destroy({
             where: {
@@ -51,4 +52,4 @@ users.delete('/:id', async (req, res) => {
 
 
 //EXPORT
-module.exports = users
+export default users

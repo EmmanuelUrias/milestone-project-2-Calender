@@ -1,12 +1,28 @@
 'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class Event extends Model {
+import { Model, Sequelize, DataTypes } from 'sequelize';
 
-    static associate({ User }) {
-      Event.belongsTo(User, {
+interface EventAttributes {
+  event_ID: number,
+  event_title: string,
+  event_location: string,
+  event_date: string,
+  description: string,
+  user_ID: number
+}
+
+interface Event2DataTypes {
+  INTEGER: any,
+  STRING: string,
+  DATEONLY: string,
+  TEXT: string,
+  SMALLINT: any
+}
+
+module.exports = (sequelize: Sequelize, DataTypes: Event2DataTypes) => {
+  class Event extends Model<EventAttributes> {
+
+    static associate(models: { User: any}) {
+      Event.belongsTo(models.User, {
         foreignKey: "user_ID",
         as: "user"
       })

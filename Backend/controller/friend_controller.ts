@@ -1,10 +1,11 @@
 //DEPENDENCIES
-const friends = require('express').Router()
+import express, { Request, Response } from 'express'
+const friends = express.Router()
 const db = require('../models')
 const { Friend } = db
 
 //FIND ALL FRIENDS
-friends.get('/', async (req, res) => {
+friends.get('/', async (req: Request, res: Response) => {
     try {
         const foundFriends = await Friend.findAll()
         res.status(200).json(foundFriends)
@@ -15,7 +16,7 @@ friends.get('/', async (req, res) => {
 })
 
 //FIND A SPECIFIC FRIEND
-friends.get('/:id', async (req, res) => {
+friends.get('/:id', async (req: Request, res: Response) => {
     try {
         const foundFriend = await Friend.findOne({
             where: { friend_ID: req.params.id }
@@ -28,7 +29,7 @@ friends.get('/:id', async (req, res) => {
 })
 
 //ADD A FRIEND
-friends.post('/', async (req, res) => {
+friends.post('/', async (req: Request, res: Response) => {
     try {
         const newFriend = await Friend.create(req.body)
         res.status(200).json({
@@ -42,7 +43,7 @@ friends.post('/', async (req, res) => {
 })
 
 //DELETE A FRIEND
-friends.delete('/:id', async (req, res) => {
+friends.delete('/:id', async (req: Request, res: Response) => {
     try {
         const deletedFriends = await Friend.destroy({
             where: {
@@ -59,4 +60,4 @@ friends.delete('/:id', async (req, res) => {
 
 
 //EXPORT
-module.exports = friends
+export default friends

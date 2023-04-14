@@ -1,12 +1,12 @@
 // DEPENDENCIES
 require('dotenv').config()
-const express = require('express')
+import express from 'express'
 const app = express()
-const path = require('path')
-const cors = require('cors')
-const { Sequelize } = require('sequelize')
+import path from 'path'
+import cors from 'cors'
+import { Sequelize } from 'sequelize'
 const port = process.env.PORT || 4002;
-const config = require('./config/config')
+import config from './config/config'
 require('pg')
 
 // CONFIGURATION / MIDDLEWARE
@@ -27,16 +27,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, "../build")));
 
 //CONTROLLERS
-const eventsController = require('./controller/event_controller')
+import eventsController from './controller/event_controller'
 app.use('/api/events', eventsController)
 
-const friendsController = require('./controller/friend_controller')
+import friendsController from './controller/friend_controller'
 app.use('/api/friends', friendsController)
 
-const usersController = require('./controller/user_controller')
+import usersController from './controller/user_controller'
 app.use('/api/users', usersController)
 
-const reportsController = require('./controller/report_controller')
+import reportsController from './controller/report_controller'
 app.use('/api/reports', reportsController)
 
 //SERVER STATIC RENDERING
