@@ -35,3 +35,5 @@
 https://milestone-project-2-calender-updated-dwa5jo6id.vercel.app/
 
 ## Outstanding bugs or unfinished functionality:
+
+- Backend is currently down, working on that
